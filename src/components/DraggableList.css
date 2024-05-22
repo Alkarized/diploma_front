@@ -1,0 +1,16 @@
+.list {
+    list-style-type: none;
+    padding: 0;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.list-item {
+    padding: 16px;
+    margin: 4px 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    cursor: move;
+}

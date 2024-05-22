@@ -1,0 +1,68 @@
+/* styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+}
+
+.AppBar {
+    background-color: #1976d2 !important;
+}
+
+.Button {
+    margin: 0 10px !important;
+}
+
+.Container {
+    padding-top: 20px !important;
+}
+
+.Paper {
+    padding: 20px !important;
+    margin-top: 20px !important;
+}
+
+.ListItemButton {
+    transition: background-color 0.3s ease;
+}
+
+.ListItemButton:hover {
+    background-color: rgba(25, 118, 210, 0.1);
+}
+
+.Typography {
+    margin-bottom: 20px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.custom-form{
+    width: 500px;
+}
+
+.btn{
+    margin: 10px 0;
+}
+
+.viewer{
+    width: 100%;
+    background-color: #e4e4e4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
