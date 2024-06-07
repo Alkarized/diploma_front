@@ -133,10 +133,10 @@ const FileUploadSettings : React.FC<{ user: User, setter: any }> = ({user,setter
     }
 
     return (<div>
-            <Typography>Настройка загрузки файла для .</Typography>
+            <Typography>Настройка загрузки файла</Typography>
             <div className="wrapper">
 
-                <h3>Upload & View Excel Sheets</h3>
+                <h3>Загрузка и обновление полей</h3>
 
                 <form className="form-group custom-form" onSubmit={handleFileSubmit}>
                     <input type="file" className="form-control" required onChange={handleFile}/>

@@ -44,5 +44,16 @@ export async function sendExcelFields(formData : any) {
     return await postUpdate('data/settings/excel/update', formData);
 }
 
+export async function updateOrder(formData : any) {
+    console.log("updated", formData);
+    return await postUpdate('data/settings/orders/update', formData);
+}
+
+export async function updateTime(formData : any) {
+    console.log("updated", formData);
+    return await postUpdate('data/settings/time/update', formData);
+}
+
+
 
 

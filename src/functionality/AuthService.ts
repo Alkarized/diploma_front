@@ -3,6 +3,7 @@ import {notifyError} from "../components/NotifyCenter";
 import {parseError} from "./errorParser";
 import api from "./api";
 import {User} from "../models/user"
+import {Log} from "../SettingPages/LogViewer";
 
 
 function setStorage(data: any){
@@ -57,21 +58,18 @@ export async function getUserData() : Promise<User | null> {
             email: data.email,
             firstname: data.firstname,
             avito: {
-                id: data.avito.id,
                 clientId: data.avito.clientId,
                 clientSecret: data.avito.clientSecret,
                 markup: data.avito.markup,
                 percentage: Boolean(data.avito.percentage)
             },
             ozon: {
-                id: data.ozon.id,
                 markup: data.ozon.markup,
                 percentage: Boolean(data.ozon.percentage),
                 token : data.ozon.token,
                 clientID : data.ozon.clientID
             },
             vk: {
-                id: data.vk.id,
                 token: data.vk.token,
                 clubID: data.vk.clubID,
                 markup: data.vk.markup,
@@ -80,7 +78,6 @@ export async function getUserData() : Promise<User | null> {
                 blackList : data.settings.blackList,
                 blackListItems : data.settings.blackListItems,
                 checkOrders : data.settings.checkOrders,
-                id : data.settings.id,
                 jobTime : data.settings.jobTime,
                 timeEnable :data.settings.timeEnable,
                 avitoEnable : data.settings.avitoEnable,
@@ -92,7 +89,11 @@ export async function getUserData() : Promise<User | null> {
                     company : data.settings.excel.company,
                     article : data.settings.excel.article,
                     title : data.settings.excel.title
-                }
+                },
+                failOnNoneFound : data.settings.failOnNoneFound,
+                hours : data.settings.hours,
+                minutes : data.settings.minutes,
+                manyType : data.settings.manyType
             }
         };
     } catch (error) {
@@ -109,4 +110,25 @@ export function logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('type');
     localStorage.removeItem('refreshToken');
+}
+
+
+export async function getLogs() : Promise<Log[] | null> {
+    try {
+        const response = await api.get('data/logs/get');
+        const data = response.data;
+        let logs : Log[] = []
+        const userLogList = response.data.userLogList;
+        if (userLogList != null){
+            for (let log of userLogList){
+                logs.push({time:log.timestamp, text:log.message, type:log.type})
+            }
+        }
+
+        return logs;
+
+    } catch (error) {
+        console.log("ErrorGetUserData");
+        return null;
+    }
 }

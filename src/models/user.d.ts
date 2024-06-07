@@ -13,7 +13,6 @@ export type Item = {
 };
 
 export type Ozon = {
-    id : number
     percentage : boolean
     markup : number
     token : string
@@ -23,18 +22,21 @@ export type Ozon = {
 export type Settings = {
     blackList : string
     blackListItems : []
-    checkOrders : []
-    id : 1
+    checkOrders : string[]
     jobTime : any
     timeEnable :boolean
     avitoEnable : boolean
     ozonEnable : boolean
     vkEnable : boolean
     excel : Excel;
+    failOnNoneFound : boolean
+    hours : number
+    minutes : number
+    manyType : string
+
 }
 
 export type VK = {
-    id : number
     token : string
     clubID : number
     markup : number
@@ -42,7 +44,6 @@ export type VK = {
 }
 
 export type Avito = {
-    id : bigint
     clientId : string
     clientSecret : string
     markup : number

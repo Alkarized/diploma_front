@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TokenizedString: React.FC<{ token: string | null, maxLength: number }>  = ({ token, maxLength }) => {
-    // Функция для разбиения строки на подстроки по указанной длине
     const splitString = (strs : string, maxLength : number) => {
         const str = strs.replace("\n", "");
         const substrings = [];

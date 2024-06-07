@@ -27,6 +27,9 @@ import BlackList from "../SettingPages/BlackList";
 import FileUploadSettings from "../SettingPages/FileUploadSettings";
 import ApiUploadSettings from "../SettingPages/ApiUploadSettings";
 import EnabledServices from "../SettingPages/EnabledServices";
+import DraggableList from "../components/DraggableList";
+import TimeUpdateSettings from "../SettingPages/TimeUpdateSettings";
+import LogViewer from "../SettingPages/LogViewer";
 
 const theme = createTheme({
     palette: {
@@ -126,15 +129,15 @@ export default function Home() {
             },
         ],
         settings: [
-            {label: 'Порядок сопоставления', component: <FieldSettings platform="vk"/>},
+            {label: 'Порядок сопоставления', component: <DraggableList user={userDetails} setter={setUserDetails}/>},
             {label: 'Список исключений', component: <BlackList user={userDetails} setter={setUserDetails}/>},
             {label: 'Включенные сервисы', component: <EnabledServices user={userDetails} setter={setUserDetails}/>},
         ],
         upload: [
             {label: 'Загрузка файла', component: <FileUploadSettings user={userDetails} setter={setUserDetails}/>},
             {label: 'Загрузка через API', component: <ApiUploadSettings/>},
-            {label: 'Обновление по времени', component: <FieldSettings platform="vk"/>},
-            {label: 'Логи', component: <ApiUploadSettings/>},
+            {label: 'Обновление по времени', component: <TimeUpdateSettings user={userDetails} setter={setUserDetails}/>},
+            {label: 'Логи', component: <LogViewer/>},
         ]
     };
 
@@ -186,7 +189,7 @@ export default function Home() {
                         >
                             Загрузка
                         </Button>
-                        <Button color="inherit" variant="outlined" onClick={() => logoutFrom()}>logout</Button>
+                        <Button color="inherit" variant="outlined" onClick={() => logoutFrom()}>Выход</Button>
                     </Toolbar>
                 </AppBar>
                 <Container>

@@ -7,22 +7,22 @@ const swaggerData = {
     swagger: '2.0',
     info: {
         version: '1.0.0',
-        title: 'API Documentation',
-        description: 'Documentation for API endpoints',
+        title: 'Обновление цен через API',
+        description: 'Документация обновления цен через API',
     },
     host: 'localhost:8080',
-    basePath: '/api',
+    basePath: '/api/price',
     paths: {
-        '/update/price/all': {
+        'data/all': {
             post: {
-                summary: 'Update prices for all platforms',
-                description: 'Updates prices for all platforms',
+                summary: 'Обновление цен на всех платформах',
+                description: 'Обновить цены на всех включенных платформах',
                 consumes: ['application/json'],
                 parameters: [
                     {
                         name: 'data',
                         in: 'body',
-                        description: 'Data for updating prices',
+                        description: 'Данные для обновления',
                         required: true,
                         schema: {
                             type: 'object',
@@ -36,6 +36,7 @@ const swaggerData = {
                                             article: { type: 'string' },
                                             code: { type: 'string', nullable: true },
                                             company: { type: 'string', nullable: true },
+                                            title: { type: 'string', nullable: true},
                                         },
                                         required: ['price', 'article'],
                                     },
@@ -52,16 +53,16 @@ const swaggerData = {
                 security: [{BearerAuth: []}],
             },
         },
-        '/update/price/avito': {
+        'data/avito': {
             post: {
-                summary: 'Update prices for Avito',
-                description: 'Updates prices for Avito platform',
+                summary: 'Обновление цен Avito',
+                description: 'Обновить цены только на платформе Avito',
                 consumes: ['application/json'],
                 parameters: [
                     {
                         name: 'data',
                         in: 'body',
-                        description: 'Data for updating prices',
+                        description: 'Данные для обновления',
                         required: true,
                         schema: {
                             type: 'object',
@@ -75,6 +76,88 @@ const swaggerData = {
                                             article: { type: 'string' },
                                             code: { type: 'string', nullable: true },
                                             company: { type: 'string', nullable: true },
+                                            title: { type: 'string', nullable: true},
+                                        },
+                                        required: ['price', 'article'],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                ],
+                responses: {
+                    '200': {
+                        description: 'Success',
+                    },
+                },
+                security: [{BearerAuth: []}],
+            },
+        },
+        'data/vk': {
+            post: {
+                summary: 'Обновление цен VK',
+                description: 'Обновить цены только на платформе VK',
+                consumes: ['application/json'],
+                parameters: [
+                    {
+                        name: 'data',
+                        in: 'body',
+                        description: 'Данные для обновления',
+                        required: true,
+                        schema: {
+                            type: 'object',
+                            properties: {
+                                items: {
+                                    type: 'array',
+                                    items: {
+                                        type: 'object',
+                                        properties: {
+                                            price: { type: 'number' },
+                                            article: { type: 'string' },
+                                            code: { type: 'string', nullable: true },
+                                            company: { type: 'string', nullable: true },
+                                            title: { type: 'string', nullable: true},
+
+                                        },
+                                        required: ['price', 'article'],
+                                    },
+                                },
+                            },
+                        },
+                    },
+                ],
+                responses: {
+                    '200': {
+                        description: 'Success',
+                    },
+                },
+                security: [{BearerAuth: []}],
+            },
+        },
+        'data/ozon': {
+            post: {
+                summary: 'Обновление цен Ozon',
+                description: 'Обновить цены только на платформе Ozon',
+                consumes: ['application/json'],
+                parameters: [
+                    {
+                        name: 'data',
+                        in: 'body',
+                        description: 'Данные для обновления',
+                        required: true,
+                        schema: {
+                            type: 'object',
+                            properties: {
+                                items: {
+                                    type: 'array',
+                                    items: {
+                                        type: 'object',
+                                        properties: {
+                                            price: { type: 'number' },
+                                            article: { type: 'string' },
+                                            code: { type: 'string', nullable: true },
+                                            company: { type: 'string', nullable: true },
+                                            title: { type: 'string', nullable: true},
                                         },
                                         required: ['price', 'article'],
                                     },
@@ -97,8 +180,8 @@ const swaggerData = {
         BearerAuth: {
             type: 'apiKey',
             name: 'Authorization',
-            in: 'header',
-            description: 'Enter your Bearer token in the format "Bearer {token}"',
+            in: 'Заголовок',
+            description: 'Введите токен в формате "Bearer {token}"',
         },
     },
 };
