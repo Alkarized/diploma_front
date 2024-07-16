@@ -94,7 +94,7 @@ export default function Login() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Вход
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
@@ -102,7 +102,7 @@ export default function Login() {
                             required
                             fullWidth
                             id="username"
-                            label="username"
+                            label="Логин"
                             name="username"
                             autoComplete="username"
                             autoFocus
@@ -116,7 +116,7 @@ export default function Login() {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label="Пароль"
                             type={showPassword ? "text" : "password"}
                             id="password"
                             autoComplete="current-password"
@@ -143,10 +143,10 @@ export default function Login() {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Sign In
+                            Войти
                         </Button>
                         <Link href="/register" variant="body2">
-                            {"Don't have an account? Sign Up"}
+                            {"Нет аккаунта? Создать"}
                         </Link>
                     </Box>
                 </Box>

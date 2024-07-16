@@ -41,18 +41,6 @@ const theme = createTheme({
     },
 });
 
-interface PlatformSetup {
-    platform: string;
-}
-
-const FieldSettings: React.FC<PlatformSetup> = ({platform}) => {
-    return (
-        <div>
-            <Typography>Настройка полей для {platform}</Typography>
-            {/* Ваши компоненты настройки полей */}
-        </div>
-    );
-}
 
 
 type SettingOption = {

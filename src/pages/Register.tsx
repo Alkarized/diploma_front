@@ -82,7 +82,7 @@ export default function Register() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign up
+                        Регистрация
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{
                         mt: 3,
@@ -104,7 +104,7 @@ export default function Register() {
                                     required
                                     fullWidth
                                     id="username"
-                                    label="Username"
+                                    label="Логин"
                                     autoFocus
                                     value={formData.username}
                                     onChange={handleChange}
@@ -117,7 +117,7 @@ export default function Register() {
                                     required
                                     fullWidth
                                     id="firstName"
-                                    label="First Name"
+                                    label="Имя"
                                     name="firstname"
                                     autoComplete="family-name"
                                     value={formData.firstname}
@@ -131,7 +131,7 @@ export default function Register() {
                                     required
                                     fullWidth
                                     id="email"
-                                    label="Email Address"
+                                    label="Email"
                                     name="email"
                                     type="email"
                                     autoComplete="email"
@@ -146,7 +146,7 @@ export default function Register() {
                                     required
                                     fullWidth
                                     name="password"
-                                    label="Password"
+                                    label="Пароль"
                                     type={showPassword ? "text" : "password"}
                                     id="password"
                                     autoComplete="new-password"
@@ -175,12 +175,12 @@ export default function Register() {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Sign Up
+                            Зарегестрироваться
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
                                 <Link href="/login" variant="body2">
-                                    Already have an account? Sign in
+                                    Есть аккаунт? Войти
                                 </Link>
                             </Grid>
                         </Grid>
